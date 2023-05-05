@@ -104,8 +104,6 @@ const Game = () => {
     setCards(shuffledCards);
     setSelectedCards([]);
     setMatchedCards([]);
-    setSelectedCards([]);
-    setMatchedCards([]);
   };
 
   return (
