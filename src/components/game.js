@@ -108,7 +108,7 @@ const Game = () => {
 
   return (
     <div>
-      <h1>Word Match</h1>
+      <h1>Memo Game</h1>
       <div className="game-board">
         {cards.map((word, index) => (
           <Card
