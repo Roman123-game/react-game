@@ -19,7 +19,7 @@ const words = [
 ];
 
 const Card = ({ word, index, handleCardClick }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(true);
 
   const handleFlipCard = () => {
     setIsFlipped(!isFlipped);
@@ -33,7 +33,7 @@ const Card = ({ word, index, handleCardClick }) => {
       <div className="card-front"><img src={cardFront} alt="" /></div> 
       :
       <div className="card-back"><p>{word}</p></div>}
-      
+
     </div>
   );
 };
