@@ -18,7 +18,8 @@ const words = [
   'watermelon',
 ];
 
-const Card = ({ word, index, handleCardClick }) => {
+const Card = (props) => {
+  const { word, index, handleCardClick }=  props
   const [isFlipped, setIsFlipped] = useState(true);
 
   const handleFlipCard = () => {
