@@ -116,15 +116,17 @@ function Uniqe() {
     setOpponentHand(opponentHand);
   }, []);
 
+  const rules = `In Elemental Clash, players take turns playing cards from their hand to deal damage to each other. Each card has a type (fire, water, earth, or wind),
+  and a corresponding damage value. The game ends when one player's health is reduced to 0.`
+
   return (
     <div className="main">
       <h1>Elemantal Clash</h1>
-      <h4>In "Elemental Clash", players take turns playing cards from their hand to deal damage to each other. Each card has a type (fire, water, earth, or wind)
-         and a corresponding damage value. The game ends when one player's health is reduced to 0.</h4>
+      <h4>{rules}</h4>
       <div className="health">
-      <Badge badgeContent={playerHealth} color="primary">  Player Health
+      <Badge badgeContent={playerHealth}  color="secondary">  Player Health
      </Badge>
-     <Badge badgeContent={opponentHealth} color="primary"> Opponent Health
+     <Badge badgeContent={opponentHealth}  color="secondary"> Opponent Health
      </Badge>
       </div>
       <div className="hands">
