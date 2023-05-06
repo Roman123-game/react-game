@@ -9,19 +9,19 @@ import Badge from '@mui/material/Badge'
 
 const CARD_TYPES = {
   fire: {
-    name: <LocalFireDepartmentIcon fontSize="large"/>,
+    name: <LocalFireDepartmentIcon fontSize="xx-large"/>,
     damage: 5
   },
   water: {
-    name: <WaterIcon fontSize="large"/>,
+    name: <WaterIcon  fontSize="xx-large"/>,
     damage:4
   },
   earth: {
-    name: <GrassIcon fontSize="large"/>,
+    name: <GrassIcon  fontSize="xx-large"/>,
     damage: 3
   },
   wind: {
-    name: <AirIcon fontSize="large"/>,
+    name: <AirIcon  fontSize="xx-large"/>,
     damage: 2
   }
 };
@@ -100,7 +100,9 @@ function Uniqe() {
     }
 
     const shuffledDeck = shuffleCards(deck);
+    console.log("🚀 ~ file: Uniqe.js:103 ~ useEffect ~ shuffledDeck:", shuffledDeck)
     const playerDeck = shuffledDeck.slice(0, 20);
+    console.log("🚀 ~ file: Uniqe.js:104 ~ useEffect ~ playerDeck:", playerDeck)
     const opponentDeck = shuffledDeck.slice(20, 40);
     setPlayerDeck(playerDeck);
     setOpponentDeck(opponentDeck);
