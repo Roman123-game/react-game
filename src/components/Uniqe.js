@@ -3,19 +3,19 @@ import "./Uniqe.css";
 
 const CARD_TYPES = {
   fire: {
-    name: "Fire",
+    name: "\uD83D\uDD25",
     damage: 5
   },
   water: {
-    name: "Water",
+    name: "\uD83D\uDCA7",
     damage:4
   },
   earth: {
-    name: "Earth",
+    name: "\uD83C\uDF0D",
     damage: 3
   },
   wind: {
-    name: "Wind",
+    name: "\uD83C\uDF43",
     damage: 2
   }
 };
