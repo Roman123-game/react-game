@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './game.css'
 import Card from './Card'
-const words = [
-  'apple',
-  'banana',
-  'cherry',
-  'grape',
-  'kiwi',
-  'lemon',
-  'orange',
-  'peach',
-  'pear',
-  'pineapple',
-  'plum',
-  'raspberry',
-  'strawberry',
-  'watermelon',
+
+const words =[
+  "apple",
+  "banana",
+  "cherry",
+  "grape",
+  "kiwi",
+  "lemon",
+  "orange",
+  "peach",
+  "pear",
+  "pineapple",
+  "plum",
+  "raspberry",
+  "strawberry",
+  "watermelon",
 ];
 
 
@@ -26,6 +27,7 @@ const Game = () => {
 
 
   const shuffleWords = (words) => {
+
     let currentIndex = words.length;
     let temporaryValue, randomIndex;
 
@@ -65,8 +67,7 @@ const Game = () => {
     setCards(shuffledCards);
   }, []);
 
-  const handleCardClick = (props) => {
-    const {index} = props
+  const handleCardClick = (index) => {
     if (selectedCards.length < 2 && !selectedCards.includes(index)) {
       const newSelectedCards = [...selectedCards, index];
       setSelectedCards(newSelectedCards);
@@ -78,7 +79,7 @@ const Game = () => {
       }
       else if (newSelectedCards.length === 2) {
         console.log("selectedcardfunc")
-        setTimeout(() => {setSelectedCards([])}, 1000);
+        setTimeout(setSelectedCards([]), 1000);
       }
     }
   };
@@ -105,7 +106,7 @@ const Game = () => {
             key={index}
             word={word}
             index={index}
-            handleCardClick={()=>handleCardClick({index})}
+            handleCardClick={handleCardClick}
           />
         ))}
       </div>
