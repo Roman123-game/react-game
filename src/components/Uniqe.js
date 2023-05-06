@@ -4,19 +4,19 @@ import "./Uniqe.css";
 const CARD_TYPES = {
   fire: {
     name: "Fire",
-    damage:4
+    damage: 5
   },
   water: {
     name: "Water",
-    damage: 3
+    damage:4
   },
   earth: {
     name: "Earth",
-    damage: 2
+    damage: 3
   },
   wind: {
     name: "Wind",
-    damage: 1
+    damage: 2
   }
 };
 
@@ -88,7 +88,7 @@ function Uniqe() {
     // Create the deck of cards
     const deck = [];
     for (const type in CARD_TYPES) {
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 12; i++) {
         deck.push({ type });
       }
     }
@@ -102,7 +102,7 @@ function Uniqe() {
     // Draw 5 cards for the player and opponent
     const playerHand = [];
     const opponentHand = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
       drawCard(playerDeck, playerHand);
       drawCard(opponentDeck, opponentHand);
     }
