@@ -9,6 +9,7 @@
   justify-content: space-between;
   margin-bottom: 20px;
   font-size: 1.2rem;
+  color:darkcyan
 }
 
 .hands {
@@ -42,6 +43,7 @@ margin-right: 150px;
 
 .card:hover {
   box-shadow: 0px 0px 10px black;
+  border-color:white;
 }
 
 .card:nth-child(even) {
