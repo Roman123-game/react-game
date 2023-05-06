@@ -112,13 +112,16 @@ function Uniqe() {
 
   return (
     <div className="main">
+      <h2>Elemantal Clash</h2>
+      <h5>In "Elemental Clash", players take turns playing cards from their hand to deal damage to each other. Each card has a type (fire, water, earth, or wind)
+         and a corresponding damage value. The game ends when one player's health is reduced to 0.</h5>
       <div className="health">
         <div>Player Health: {playerHealth}</div>
         <div>Opponent Health: {opponentHealth}</div>
       </div>
       <div className="hands">
         <div className="player-hand">
-          <h2>Your Hand:</h2>
+          <h2 className="hand">Your Hand:</h2>
           <div>
             {playerHand.map((card, index) => (
               <div
@@ -132,7 +135,7 @@ function Uniqe() {
           </div>
         </div>
         <div className="opponent-hand">
-          <h2>Opponent's Hand:</h2>
+          <h2 className="hand">Opponent's Hand:</h2>
           <div>
             {opponentHand.map((card, index) => (
               <div key={index} className="card">

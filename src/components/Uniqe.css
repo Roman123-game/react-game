@@ -15,7 +15,9 @@
   display: flex;
   justify-content: space-between;
 }
-
+.hand{
+margin-right: 150px;
+}
 .player-hand,
 .opponent-hand {
   flex: 1;
@@ -27,7 +29,7 @@
   height: 180px;
   border: 2px solid black;
   border-radius: 8px;
-  background-color: white;
+  background-color: lightblue;
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
@@ -43,8 +45,10 @@
 }
 
 .card:nth-child(even) {
-  background-color: lightgray;
+  background-color: lightgreen;
+
 }
+
 
 .card.disabled {
   opacity: 0.5;
