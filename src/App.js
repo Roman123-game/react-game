@@ -1,10 +1,10 @@
 import './App.css';
-import Deck from './components/Deck';
+import Uniqe from './components/Uniqe';
 
 function App() {
   return (
     <div className="App">
-   <Deck/>
+   <Uniqe/>
     </div>
   );
 }
