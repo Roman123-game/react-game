@@ -1,10 +1,29 @@
-import React from 'react';
-import"./card.css"
-const Card = ({ value, suit }) => {
+import React, { useState } from "react";
+import "./Card.css";
+
+const Card = ({ rank, suit, isFaceUp, onClick }) => {
+  const [isFlipped, setIsFlipped] = useState(!isFaceUp);
+
+  const handleClick = () => {
+    if (isFaceUp) {
+      onClick();
+    } else {
+      setIsFlipped(!isFlipped);
+    }
+  };
+
   return (
-    <div className="card">
-      <div className={`suit ${suit}`}>{suit}</div>
-      <div className="value">{value}</div>
+    <div
+      className={`card ${isFaceUp ? "face-up" : "face-down"} ${
+        isFlipped ? "flipped" : ""
+      }`}
+      onClick={handleClick}
+    >
+      <div className="card-front">
+        <div className="card-rank">{rank}</div>
+        <div className="card-suit">{suit}</div>
+      </div>
+      <div className="card-back"></div>
     </div>
   );
 };

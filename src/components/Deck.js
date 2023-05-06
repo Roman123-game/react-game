@@ -1,98 +1,100 @@
-import React, { useState, useEffect } from 'react';
-import Card from './Card';
-import "./deck.css"
+import React, { useState, useEffect } from "react";
+import Card from "./Card";
+import "./Deck.css";
 
-const DECK_SIZE = 52;
+const RANKS = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+const SUITS = ["♠", "♣", "♥", "♦"];
+const TOTAL_CARDS = RANKS.length * SUITS.length;
 
 const StackTheDeck = () => {
-  const [deck, setDeck] = useState([]);
-  const [stack, setStack] = useState([]);
-  const [hand, setHand] = useState([]);
-  const [gameOver, setGameOver] = useState(false);
+  const [cards, setCards] = useState([]);
+  const [selectedCards, setSelectedCards] = useState([]);
+  const [isGameOver, setIsGameOver] = useState(false);
 
   useEffect(() => {
-    const newDeck = [];
-    const suits = ['♠', '♣', '♥', '♦'];
-    const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-    suits.forEach(suit => {
-      values.forEach(value => {
-        newDeck.push({ value, suit });
+    const newCards = [];
+    for (let i = 0; i < TOTAL_CARDS; i++) {
+      const rank = RANKS[i % RANKS.length];
+      const suit = SUITS[Math.floor(i / RANKS.length)];
+      newCards.push({
+        id: i,
+        rank,
+        suit,
+        isFaceUp: false,
       });
-    });
-    setDeck(newDeck);
+    }
+    setCards(newCards);
   }, []);
 
-  useEffect(() => {
-    if (deck.length > 0 && hand.length < 5) {
-      const newHand = [...hand];
-      const card = deck.pop();
-      newHand.push(card);
-      setHand(newHand);
-      setDeck(deck);
-    }
-  }, [deck]);
+  const handleClick = (id) => {
+    const selectedCard = cards.find((card) => card.id === id);
+    const updatedCards = [...cards];
+    const updatedSelectedCards = [...selectedCards];
 
-  useEffect(() => {
-    if (stack.length === DECK_SIZE) {
-      setGameOver(true);
-    }
-  }, [stack]);
-
-  const handleCardClick = (cardIndex) => {
-    const selectedCard = hand[cardIndex];
-    const topCard = stack[stack.length - 1];
-    if (selectedCard.suit === topCard.suit && selectedCard.value === getNextValue(topCard.value)) {
-      const newStack = [...stack];
-      const newHand = [...hand];
-      newStack.push(selectedCard);
-      newHand.splice(cardIndex, 1);
-      setStack(newStack);
-      setHand(newHand);
+    if (selectedCard.isFaceUp) {
+      setSelectedCards(updatedSelectedCards.filter((card) => card.id !== id));
     } else {
-      alert('You cannot play that card.');
+      updatedSelectedCards.push(selectedCard);
+      setSelectedCards(updatedSelectedCards);
+    }
+
+    updatedCards.forEach((card) => {
+      if (updatedSelectedCards.includes(card)) {
+        card.isFaceUp = true;
+      } else {
+        card.isFaceUp = false;
+      }
+    });
+
+    setCards(updatedCards);
+
+    if (updatedSelectedCards.length === 3) {
+      const isMatch =
+        updatedSelectedCards[0].rank === updatedSelectedCards[1].rank &&
+        updatedSelectedCards[1].rank === updatedSelectedCards[2].rank;
+      setIsGameOver(isMatch);
     }
   };
 
-  const getNextValue = (value) => {
-    const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-    const currentIndex = values.indexOf(value);
-    if (currentIndex < values.length - 1) {
-      return values[currentIndex + 1];
-    } else {
-      return null;
-    }
-  };
-
-  const handleDrawCard = () => {
-    const newHand = [...hand];
-    const card = deck.pop();
-    newHand.push(card);
-    setHand(newHand);
-    setDeck(deck);
+  const handleRestart = () => {
+    setCards(cards.map((card) => ({ ...card, isFaceUp: false })));
+    setSelectedCards([]);
+    setIsGameOver(false);
   };
 
   return (
     <div className="stack-the-deck">
       <div className="stack">
-        {stack.map((card, index) => (
-          <Card key={index} value={card.value} suit={card.suit} />
+        {cards.map((card) => (
+          <Card
+            key={card.id}
+            rank={card.rank}
+            suit={card.suit}
+            isFaceUp={card.isFaceUp}
+            onClick={() => handleClick(card.id)}
+          />
         ))}
       </div>
       <div className="hand">
-        {hand.map((card, index) => (
-          <Card key={index} value={card.value} suit={card.suit} onClick={()=> handleCardClick(index)} />
-    ))}
-    {deck.length > 0 && (
-      <button onClick={handleDrawCard}>Draw Card</button>
-    )}
-  </div>
-  {gameOver && (
-    <div className="game-over">
-      <h2>Congratulations, you stacked the deck!</h2>
+        {selectedCards.map((card) => (
+          <Card
+            key={card.id}
+            rank={card.rank}
+            suit={card.suit}
+            isFaceUp={true}
+            onClick={() => handleClick(card.id)}
+          />
+        ))}
+        {selectedCards.length < 3 && <div className="placeholder"></div>}
+      </div>
+      {isGameOver && (
+        <div className="game-over">
+          <p>Congratulations, you won!</p>
+          <button onClick={handleRestart}>Restart</button>
+        </div>
+      )}
     </div>
-  )}
-</div>
-);
+  );
 };
 
 export default StackTheDeck;
