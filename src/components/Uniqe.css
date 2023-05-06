@@ -1,58 +1,52 @@
 .main {
+  margin: auto;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.health {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-family: sans-serif;
-  margin-top:10px
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
 }
 
-h1 {
-  font-size: 3rem;
-  text-align: center;
+.hands {
+  display: flex;
+  justify-content: space-between;
 }
 
-.player,
-.opponent {
+.player-hand,
+.opponent-hand {
   flex: 1;
-  padding: 1rem;
-  text-align: center;
-}
-
-
-.hand {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+  margin-right: 10px;
 }
 
 .card {
+  width: 120px;
+  height: 180px;
+  border: 2px solid black;
+  border-radius: 8px;
+  background-color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 5.5rem;
-  height: 7rem;
-  border: 2px solid black;
-  border-radius: 5px;
-  background-color: white;
   cursor: pointer;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
+  margin-bottom: 10px;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  box-shadow: 0px 0px 10px black;
 }
 
-.player .card:hover {
-  border-color: lightgreen;
+.card:nth-child(even) {
+  background-color: lightgray;
 }
 
-.opponent .card:hover {
-  border-color: lightblue;
+.card.disabled {
+  opacity: 0.5;
+  cursor: default;
 }
