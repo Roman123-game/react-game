@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './game.css'
-import cardFront from '../images/card-front.png'
+import Card from './Card'
 const words = [
   'apple',
   'banana',
@@ -18,53 +18,12 @@ const words = [
   'watermelon',
 ];
 
-const Card = (props) => {
-  const { word, index, handleCardClick }=  props
-  const [isFlipped, setIsFlipped] = useState(true);
-
-  const handleFlipCard = () => {
-    setIsFlipped(!isFlipped);
-    handleCardClick(index);
-    console.log("card flipped")
-  };
-
-  return (
-    <div className={`card ${isFlipped ? 'flip' : ''}`} onClick={handleFlipCard}>
-      {isFlipped ?
-      <div className="card-front"><img src={cardFront} alt="" /></div> 
-      :
-      <div className="card-back"><p>{word}</p></div>}
-
-    </div>
-  );
-};
 
 const Game = () => {
   const [cards, setCards] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
 
-  useEffect(() => {
-    const shuffledWords = shuffleWords(words);
-    const cardWords = [...shuffledWords, ...shuffledWords];
-    const shuffledCards = shuffleCards(cardWords);
-    setCards(shuffledCards);
-  }, []);
-
-  const handleCardClick = (index) => {
-    if (selectedCards.length < 2 && !selectedCards.includes(index)) {
-      const newSelectedCards = [...selectedCards, index];
-      setSelectedCards(newSelectedCards);
-      const card1 = cards[newSelectedCards[0]];
-      const card2 = cards[newSelectedCards[1]];
-      if (card1 === card2) {
-        setMatchedCards([...matchedCards, card1]);
-      }
-      if (newSelectedCards.length === 2) {
-        setTimeout(() => setSelectedCards([]), 1000);
-      }
-    }
-  };
 
   const shuffleWords = (words) => {
     let currentIndex = words.length;
@@ -98,6 +57,36 @@ const Game = () => {
     return cards;
   };
 
+
+  useEffect(() => {
+    const shuffledWords = shuffleWords(words);
+    const cardWords = [...shuffledWords, ...shuffledWords];
+    const shuffledCards = shuffleCards(cardWords);
+    setCards(shuffledCards);
+  }, []);
+
+  const handleCardClick = (props) => {
+    const {index} = props
+    if (selectedCards.length < 2 && !selectedCards.includes(index)) {
+      const newSelectedCards = [...selectedCards, index];
+      setSelectedCards(newSelectedCards);
+      const card1 = cards[newSelectedCards[0]];
+      const card2 = cards[newSelectedCards[1]];
+      if (card1 === card2) {
+        console.log("card matched")
+        setMatchedCards([...matchedCards, card1]);
+      }
+      else if (newSelectedCards.length === 2) {
+        console.log("selectedcardfunc")
+        setTimeout(() => {setSelectedCards([])}, 1000);
+      }
+    }
+  };
+
+
+
+
+
   const handleNewGame = () => {
     const shuffledWords = shuffleWords(words);
     const cardWords = [...shuffledWords, ...shuffledWords];
@@ -116,7 +105,7 @@ const Game = () => {
             key={index}
             word={word}
             index={index}
-            handleCardClick={handleCardClick}
+            handleCardClick={()=>handleCardClick({index})}
           />
         ))}
       </div>
