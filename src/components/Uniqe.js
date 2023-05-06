@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "./Uniqe.css";
+import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+import WaterIcon from '@mui/icons-material/Water';
+import AirIcon from '@mui/icons-material/Air';
+import GrassIcon from '@mui/icons-material/Grass';
+import Badge from '@mui/material/Badge'
+
 
 const CARD_TYPES = {
   fire: {
-    name: "\uD83D\uDD25",
+    name: <LocalFireDepartmentIcon fontSize="large"/>,
     damage: 5
   },
   water: {
-    name: "\uD83D\uDCA7",
+    name: <WaterIcon fontSize="large"/>,
     damage:4
   },
   earth: {
-    name: "\uD83C\uDF0D",
+    name: <GrassIcon fontSize="large"/>,
     damage: 3
   },
   wind: {
-    name: "\uD83C\uDF43",
+    name: <AirIcon fontSize="large"/>,
     damage: 2
   }
 };
@@ -112,12 +118,14 @@ function Uniqe() {
 
   return (
     <div className="main">
-      <h2>Elemantal Clash</h2>
-      <h5>In "Elemental Clash", players take turns playing cards from their hand to deal damage to each other. Each card has a type (fire, water, earth, or wind)
-         and a corresponding damage value. The game ends when one player's health is reduced to 0.</h5>
+      <h1>Elemantal Clash</h1>
+      <h4>In "Elemental Clash", players take turns playing cards from their hand to deal damage to each other. Each card has a type (fire, water, earth, or wind)
+         and a corresponding damage value. The game ends when one player's health is reduced to 0.</h4>
       <div className="health">
-        <div>Player Health: {playerHealth}</div>
-        <div>Opponent Health: {opponentHealth}</div>
+      <Badge badgeContent={playerHealth} color="primary">  Player Health
+     </Badge>
+     <Badge badgeContent={opponentHealth} color="primary"> Opponent Health
+     </Badge>
       </div>
       <div className="hands">
         <div className="player-hand">
