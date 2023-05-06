@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
-import "../components/deck.css"
+import "./deck.css"
 
 const DECK_SIZE = 52;
 
