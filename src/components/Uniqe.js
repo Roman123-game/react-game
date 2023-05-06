@@ -92,8 +92,10 @@ function Uniqe() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="main">
       <h1>Elemental Clash</h1>
+      <h5>Rules: In "Elemental Clash", players take turns playing cards from their hand to deal damage to each other. 
+        Each card has a type (fire, water, earth, or wind) and a corresponding damage value. The game ends when one player's health is reduced to 0.</h5>
       <div className="player">
         <h2>Player</h2>
         <p>Health: {playerHealth}</p>

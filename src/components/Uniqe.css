@@ -1,10 +1,11 @@
-.App {
+.main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   font-family: sans-serif;
+  margin-top:10px
 }
 
 h1 {
@@ -19,9 +20,6 @@ h1 {
   text-align: center;
 }
 
-.player {
-  border-right: 2px solid black;
-}
 
 .hand {
   display: flex;
@@ -35,7 +33,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 5rem;
+  width: 5.5rem;
   height: 7rem;
   border: 2px solid black;
   border-radius: 5px;
@@ -52,9 +50,9 @@ h1 {
 }
 
 .player .card:hover {
-  border-color: #ff4136;
+  border-color: lightgreen;
 }
 
 .opponent .card:hover {
-  border-color: #0074d9;
+  border-color: lightblue;
 }
