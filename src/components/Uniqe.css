@@ -3,7 +3,12 @@
   max-width: 800px;
   padding: 20px;
 }
-
+.header{
+  text-align: center;
+}
+.rules{
+  text-align: center;
+}
 .health {
   display: flex;
   justify-content: space-between;
@@ -16,13 +21,11 @@
   display: flex;
   justify-content: space-between;
 }
-.hand{
-margin-right: 150px;
-}
+
 .player-hand,
 .opponent-hand {
   flex: 1;
-  margin-right: 10px;
+  margin-right: 0px;
 }
 
 .card {

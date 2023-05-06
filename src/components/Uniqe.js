@@ -121,8 +121,8 @@ function Uniqe() {
 
   return (
     <div className="main">
-      <h1>Elemantal Clash</h1>
-      <h4>{rules}</h4>
+      <h1 className="header">Elemantal Clash</h1>
+      <h4 className="rules">{rules}</h4>
       <div className="health">
       <Badge badgeContent={playerHealth}  color="secondary">  Player Health
      </Badge>
