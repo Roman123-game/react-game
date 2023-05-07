@@ -148,7 +148,7 @@ function Uniqe() {
         </div>
         <div className="opponent-hand">
           <h2 className="hand">Opponent's Hand:</h2>
-          <div>
+          <div  className="cardsRow">
             {opponentHand.map((card, index) => (
               <div key={index} className="card">
                 {CARD_TYPES[card.type].name}

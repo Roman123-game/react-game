@@ -22,10 +22,17 @@
   justify-content: space-between;
 }
 
+
 .player-hand,
 .opponent-hand {
   flex: 1;
   margin-right: 0px;
+}
+.cardRow{
+  margin-left:50px
+}
+.opponent-hand {
+  margin-left: 390px;
 }
 
 .card {
