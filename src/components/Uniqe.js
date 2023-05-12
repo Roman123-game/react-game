@@ -66,7 +66,7 @@ function Uniqe() {
     setMessage("Opponent turn")
     setTimeout(() => {
       setActive(false);
-    }, "3000");
+    }, "2000");
 
     // Deal damage to the opponent based on the card type
     const damage = CARD_TYPES[card.type].damage;
