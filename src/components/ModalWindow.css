@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   transform: scale(0);
+  transition: 0.5s;
 }
 
 .modal.active{
