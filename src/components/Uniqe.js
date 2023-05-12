@@ -63,7 +63,7 @@ function Uniqe() {
     setPlayerHand(newPlayerHand);
 
     setActive(true);
-    setMessage("Opponnet turn")
+    setMessage("Opponet turn")
     setTimeout(() => {
       setActive(false);
     }, "3000");
