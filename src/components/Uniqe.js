@@ -5,23 +5,24 @@ import WaterIcon from '@mui/icons-material/Water';
 import AirIcon from '@mui/icons-material/Air';
 import GrassIcon from '@mui/icons-material/Grass';
 import Badge from '@mui/material/Badge'
+import ModalWindow from "./ModalWindow"
 
 
 const CARD_TYPES = {
   fire: {
-    name: <LocalFireDepartmentIcon fontSize="xx-large"/>,
+    name: <LocalFireDepartmentIcon fontSize="xx-large" />,
     damage: 5
   },
   water: {
-    name: <WaterIcon  fontSize="xx-large"/>,
-    damage:4
+    name: <WaterIcon fontSize="xx-large" />,
+    damage: 4
   },
   earth: {
-    name: <GrassIcon  fontSize="xx-large"/>,
+    name: <GrassIcon fontSize="xx-large" />,
     damage: 3
   },
   wind: {
-    name: <AirIcon  fontSize="xx-large"/>,
+    name: <AirIcon fontSize="xx-large" />,
     damage: 2
   }
 };
@@ -33,6 +34,8 @@ function Uniqe() {
   const [opponentDeck, setOpponentDeck] = useState([]);
   const [playerHand, setPlayerHand] = useState([]);
   const [opponentHand, setOpponentHand] = useState([]);
+  const [active, setActive] = useState(false);
+  const [message, setMessage] = useState("");
 
   // Shuffle an array of cards
   const shuffleCards = (cards) => {
@@ -59,6 +62,12 @@ function Uniqe() {
     const card = newPlayerHand.splice(index, 1)[0];
     setPlayerHand(newPlayerHand);
 
+    setActive(true);
+    setMessage("Opponnet turn")
+    setTimeout(() => {
+      setActive(false);
+    }, "3000");
+
     // Deal damage to the opponent based on the card type
     const damage = CARD_TYPES[card.type].damage;
     setOpponentHealth(opponentHealth - damage);
@@ -83,9 +92,9 @@ function Uniqe() {
   // Check if the game is over (either player's health is 0)
   useEffect(() => {
     if (playerHealth <= 0) {
-      alert("You lost the game!");
+      setMessage("You lost the game!");
     } else if (opponentHealth <= 0) {
-      alert("You won the game!");
+      setMessage("You won the game!");
     }
   }, [playerHealth, opponentHealth]);
 
@@ -123,13 +132,14 @@ function Uniqe() {
 
   return (
     <div className="main">
+      <ModalWindow active={active} setActive={setActive} message={message} />
       <h1 className="header">Elemental Clash</h1>
       <h4 className="rules">{rules}</h4>
       <div className="health">
-      <Badge badgeContent={playerHealth}  color="secondary">  Player Health
-     </Badge>
-     <Badge badgeContent={opponentHealth}  color="secondary"> Opponent Health
-     </Badge>
+        <Badge badgeContent={playerHealth} color="secondary">  Player Health
+        </Badge>
+        <Badge badgeContent={opponentHealth} color="secondary"> Opponent Health
+        </Badge>
       </div>
       <div className="hands">
         <div className="player-hand">
@@ -148,7 +158,7 @@ function Uniqe() {
         </div>
         <div className="opponent-hand">
           <h2 className="hand">Opponent's Hand:</h2>
-          <div  className="cardsRow">
+          <div className="cardsRow">
             {opponentHand.map((card, index) => (
               <div key={index} className="card">
                 {CARD_TYPES[card.type].name}
