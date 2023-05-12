@@ -66,3 +66,9 @@
   opacity: 0.5;
   cursor: default;
 }
+
+@media (max-width: 799px) {
+  .opponent-hand {
+    margin-left: 20px;
+  }
+}
