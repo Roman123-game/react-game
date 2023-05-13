@@ -19,13 +19,25 @@
 
 .modal__content{
   padding: 20px;
-  border-radius: 12px;
   background-color: beige;
   height: 200px;
-  width: 300px;
+  width: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   font-size: x-large;
+}
+
+.modal__content__icon{
+  padding: 20px;
+  background-color: beige;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: xx-large;
+  font-weight: bold;
 }
