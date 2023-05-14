@@ -60,20 +60,24 @@ function Uniqe() {
     // Remove the card from the player's hand
     const newPlayerHand = [...playerHand];
     const card = newPlayerHand.splice(index, 1)[0];
+
+    
     setPlayerHand(newPlayerHand);
 
-    setActive(true);
-    setMessage("Opponent turn")
-    setTimeout(() => {
-      setActive(false);
-    }, "2000");
+
 
     // Deal damage to the opponent based on the card type
     const damage = CARD_TYPES[card.type].damage;
     setOpponentHealth(opponentHealth - damage);
 
     // Opponent takes turn
-    opponentTurn();
+    setActive(true);
+    setMessage("Opponent turn")
+    setTimeout(() => {
+      setActive(false);
+      opponentTurn();
+    }, "2000");
+   
   };
 
   // Opponent plays a random card from their hand
