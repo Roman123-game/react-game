@@ -20,7 +20,7 @@
 .modal__content{
   padding: 20px;
   background-color: beige;
-  height: 200px;
+  height: 150px;
   width: 180px;
   display: flex;
   align-items: center;
