@@ -10,9 +10,7 @@ const ModalWindow = (props) => {
   const { active, message } = props;
   function simpleFunc() {
     if (message === "Opponent turn") {
-      return <Box sx={{ display: 'flex' }}>
-        <CircularProgress />
-      </Box>
+      return <Box sx={{ display: 'flex' }}><CircularProgress /></Box>
     }
     else if (message === "You lost the game!") {
       return <VideogameAssetOffIcon fontSize="large"/>
