@@ -113,9 +113,7 @@ function Uniqe() {
     }
 
     const shuffledDeck = shuffleCards(deck);
-    console.log("🚀 ~ file: Uniqe.js:103 ~ useEffect ~ shuffledDeck:", shuffledDeck)
     const playerDeck = shuffledDeck.slice(0, 20);
-    console.log("🚀 ~ file: Uniqe.js:104 ~ useEffect ~ playerDeck:", playerDeck)
     const opponentDeck = shuffledDeck.slice(20, 40);
     setPlayerDeck(playerDeck);
     setOpponentDeck(opponentDeck);
