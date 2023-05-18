@@ -21,8 +21,8 @@ const ModalWindow = (props) => {
   }
   return (
     <div className={active ? "modal active" : "modal"}>
-      <div className="modal__content" > {message  }</div>
-        <div className="modal__content" >{simpleFunc()}</div>
+      <div className="modal__content__msg" > {message  }</div>
+        <div className="modal__content__func" >{simpleFunc()}</div>
     </div>
   )
 }
