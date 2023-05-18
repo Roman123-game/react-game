@@ -4,7 +4,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import VideogameAssetOffIcon from '@mui/icons-material/VideogameAssetOff';
-
+import AccessibilityIcon from '@mui/icons-material/Accessibility';
 
 const ModalWindow = (props) => {
   const { active, message } = props;
@@ -15,9 +15,10 @@ const ModalWindow = (props) => {
     else if (message === "You lost the game!") {
       return <VideogameAssetOffIcon fontSize="large"/>
     }
-    else {
+    else if (message === "You won the game!"){
       return <EmojiEventsIcon fontSize="large"/>
     }
+    else return  <AccessibilityIcon fontSize="large"/>
   }
   return (
     <div className={active ? "modal active" : "modal"}>

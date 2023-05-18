@@ -99,6 +99,8 @@ function Uniqe() {
       setMessage("You lost the game!");
     } else if (opponentHealth <= 0) {
       setMessage("You won the game!");
+    }else if (opponentHealth > 0 && playerHealth > 0 && playerHand.length == 0 ) {
+      setMessage("No winner");
     }
   }, [playerHealth, opponentHealth]);
 
