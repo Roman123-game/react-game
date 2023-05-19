@@ -30,11 +30,11 @@
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
 }
-.modal__content__func{
+.modal__content__icon{
   padding: 20px;
   background-color: beige;
   height: 150px;
-  width: 180px;
+  width: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,7 +53,10 @@
     transform: rotate(-15deg);
   }
 
-  100% {
+ 50% {
     transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(-15deg);
   }
 }
