@@ -7,7 +7,7 @@ import VideogameAssetOffIcon from '@mui/icons-material/VideogameAssetOff';
 
 const ModalWindow = (props) => {
   const { active, message } = props;
-  function simpleFunc() {
+  function iconFunc() {
     if (message === "Opponent turn") {
       return <Box sx={{ display: 'flex' }}><CircularProgress /></Box>
     }
@@ -22,7 +22,7 @@ const ModalWindow = (props) => {
   return (
     <div className={active ? "modal active" : "modal"}>
       <div className="modal__content__msg" > {message  }</div>
-        <div className="modal__content__icon" >{simpleFunc()}</div>
+        <div className="modal__content__icon" >{iconFunc()}</div>
     </div>
   )
 }
