@@ -13,12 +13,12 @@ const ModalWindow = (props) => {
       return <Box sx={{ display: 'flex' }}><CircularProgress /></Box>
     }
     else if (message === "You lost the game!") {
-      return <VideogameAssetOffIcon fontSize="large"/>
+      return <VideogameAssetOffIcon fontSize="large" className='icon'/>
     }
     else if (message === "You won the game!"){
-      return <EmojiEventsIcon fontSize="large"/>
+      return <EmojiEventsIcon fontSize="large" className='icon'/>
     }
-    else return  <AccessibilityIcon fontSize="large"/>
+    else return  <AccessibilityIcon fontSize="large" className='icon'/>
   }
   return (
     <div className={active ? "modal active" : "modal"}>

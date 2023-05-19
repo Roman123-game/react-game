@@ -43,3 +43,17 @@
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }
+
+.icon {
+  animation: bounce 1s infinite alternate ease;
+}
+
+@keyframes bounce {
+  0% {
+    transform: rotate(-15deg);
+  }
+
+  100% {
+    transform: rotate(15deg);
+  }
+}

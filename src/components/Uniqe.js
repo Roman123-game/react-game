@@ -76,7 +76,7 @@ function Uniqe() {
     setTimeout(() => {
       setActive(false);
       opponentTurn();
-    }, "2000");
+    }, "3000");
    
   };
 
