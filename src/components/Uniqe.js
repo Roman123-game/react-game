@@ -107,7 +107,7 @@ function Uniqe() {
     // Create the deck of cards
     const deck = [];
     for (const type in CARD_TYPES) {
-      for (let i = 0; i < 12; i++) {
+      for (let i = 0; i < 14; i++) {
         deck.push({ type });
       }
     }
@@ -121,7 +121,7 @@ function Uniqe() {
     // Draw 5 cards for the player and opponent
     const playerHand = [];
     const opponentHand = [];
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 7; i++) {
       drawCard(playerDeck, playerHand);
       drawCard(opponentDeck, opponentHand);
     }
