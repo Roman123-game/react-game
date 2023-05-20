@@ -35,6 +35,7 @@ function Uniqe() {
   const [playerHand, setPlayerHand] = useState([]);
   const [opponentHand, setOpponentHand] = useState([]);
   const [active, setActive] = useState(false);
+  const [newGame, setNewGame] = useState(false);
   const [message, setMessage] = useState("");
 
   // Shuffle an array of cards
@@ -60,12 +61,7 @@ function Uniqe() {
     // Remove the card from the player's hand
     const newPlayerHand = [...playerHand];
     const card = newPlayerHand.splice(index, 1)[0];
-
-    
     setPlayerHand(newPlayerHand);
-
-
-
     // Deal damage to the opponent based on the card type
     const damage = CARD_TYPES[card.type].damage;
     setOpponentHealth(opponentHealth - damage);
@@ -76,7 +72,7 @@ function Uniqe() {
     setTimeout(() => {
       setActive(false);
       opponentTurn();
-    }, "3000");
+    }, "2500");
    
   };
 
@@ -97,8 +93,15 @@ function Uniqe() {
   useEffect(() => {
     if (playerHealth <= 0) {
       setMessage("You lost the game!");
+      setNewGame(!newGame)
+      setPlayerHealth(20);
+      setOpponentHealth(20);
+
     } else if (opponentHealth <= 0) {
       setMessage("You won the game!");
+      setNewGame(!newGame)
+      setPlayerHealth(20);
+      setOpponentHealth(20);
     }
   }, [playerHealth, opponentHealth]);
 
@@ -127,14 +130,18 @@ function Uniqe() {
     }
     setPlayerHand(playerHand);
     setOpponentHand(opponentHand);
-  }, []);
+  }, [newGame]);
+
+  const onClickFunck = () => {
+setNewGame(true)
+  }
 
   const rules = `In Elemental Clash, players take turns playing cards from their hand to deal damage to each other. Each card has a type (fire, water, earth, or wind),
   and a corresponding damage value. The game ends when one player's health is reduced to 0.`
 
   return (
     <div className="main">
-      <ModalWindow active={active} message={message} />
+      <ModalWindow active={active} message={message} onClick={()=>onClickFunck()} />
       <h1 className="header">Elemental Clash</h1>
       <h4 className="rules">{rules}</h4>
       <div className="health">

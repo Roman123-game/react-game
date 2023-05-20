@@ -6,7 +6,7 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import VideogameAssetOffIcon from '@mui/icons-material/VideogameAssetOff';
 
 const ModalWindow = (props) => {
-  const { active, message } = props;
+  const { active, message} = props;
   function iconFunc() {
     if (message === "Opponent turn") {
       return <Box sx={{ display: 'flex' }}><CircularProgress /></Box>
