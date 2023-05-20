@@ -65,7 +65,6 @@ function Uniqe() {
     // Deal damage to the opponent based on the card type
     const damage = CARD_TYPES[card.type].damage;
     setOpponentHealth(opponentHealth - damage);
-
     // Opponent takes turn
     setActive(true);
     setMessage("Opponent turn")
@@ -96,7 +95,6 @@ function Uniqe() {
       setNewGame(!newGame)
       setPlayerHealth(20);
       setOpponentHealth(20);
-
     } else if (opponentHealth <= 0) {
       setMessage("You won the game!");
       setNewGame(!newGame)
