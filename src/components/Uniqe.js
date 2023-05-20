@@ -132,16 +132,12 @@ function Uniqe() {
     setOpponentHand(opponentHand);
   }, [newGame]);
 
-  const onClickFunck = () => {
-setNewGame(true)
-  }
-
   const rules = `In Elemental Clash, players take turns playing cards from their hand to deal damage to each other. Each card has a type (fire, water, earth, or wind),
   and a corresponding damage value. The game ends when one player's health is reduced to 0.`
 
   return (
     <div className="main">
-      <ModalWindow active={active} message={message} onClick={()=>onClickFunck()} />
+      <ModalWindow active={active} message={message} />
       <h1 className="header">Elemental Clash</h1>
       <h4 className="rules">{rules}</h4>
       <div className="health">
