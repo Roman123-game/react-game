@@ -32,7 +32,7 @@ function Uniqe() {
   const [playerHand, setPlayerHand] = useState([]);
   const [opponentHand, setOpponentHand] = useState([]);
   const [active, setActive] = useState(false);
-  const [newGame, setNewGame] = useState(false);
+  const [newGame, setNewGame] = useState("false");
   const [message, setMessage] = useState("");
   // Shuffle an array of cards
   const shuffleCards = (cards) => {
@@ -83,12 +83,12 @@ function Uniqe() {
   useEffect(() => {
     if (playerHealth <= 0) {
       setMessage("You lost the game!");
-      setNewGame(!newGame)
+      setNewGame("true")
       setPlayerHealth(20);
       setOpponentHealth(20);
     } else if (opponentHealth <= 0) {
       setMessage("You won the game!");
-      setNewGame(!newGame)
+      setNewGame("true")
       setPlayerHealth(20);
       setOpponentHealth(20);
     }
