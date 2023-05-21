@@ -30,7 +30,6 @@ const CARD_TYPES = {
 function Uniqe() {
   const [playerHealth, setPlayerHealth] = useState(20);
   const [opponentHealth, setOpponentHealth] = useState(20);
-
   const [playerHand, setPlayerHand] = useState([]);
   const [opponentHand, setOpponentHand] = useState([]);
   const [active, setActive] = useState(false);
