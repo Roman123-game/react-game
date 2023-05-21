@@ -7,7 +7,6 @@ import GrassIcon from '@mui/icons-material/Grass';
 import Badge from '@mui/material/Badge'
 import ModalWindow from "./ModalWindow"
 
-
 const CARD_TYPES = {
   fire: {
     name: <LocalFireDepartmentIcon fontSize="xx-large" />,
@@ -35,7 +34,6 @@ function Uniqe() {
   const [active, setActive] = useState(false);
   const [newGame, setNewGame] = useState(false);
   const [message, setMessage] = useState("");
-
   // Shuffle an array of cards
   const shuffleCards = (cards) => {
     for (let i = cards.length - 1; i > 0; i--) {
@@ -44,7 +42,6 @@ function Uniqe() {
     }
     return cards;
   };
-
   // Draw a card from the deck and add it to the hand
   const drawCard = (deck, hand) => {
     if (deck.length > 0) {
@@ -53,7 +50,6 @@ function Uniqe() {
       hand.push(card);
     }
   };
-
   // Play a card from the player's hand
   const playCard = (index) => {
     // Remove the card from the player's hand
@@ -70,9 +66,7 @@ function Uniqe() {
       setActive(false);
       opponentTurn();
     }, "2500");
-   
   };
-
   // Opponent plays a random card from their hand
   const opponentTurn = () => {
     const index = Math.floor(Math.random() * opponentHand.length);
@@ -80,7 +74,6 @@ function Uniqe() {
     const newOpponentHand = [...opponentHand];
     newOpponentHand.splice(index, 1);
     setOpponentHand(newOpponentHand);
-
     // Deal damage to the player based on the card type
     const damage = CARD_TYPES[card.type].damage;
     setPlayerHealth(playerHealth - damage);
@@ -149,8 +142,7 @@ function Uniqe() {
               <div
                 key={index}
                 className="card"
-                onClick={() => playCard(index)}
-              >
+                onClick={() => playCard(index)}>
                 {CARD_TYPES[card.type].name}
               </div>
             ))}
