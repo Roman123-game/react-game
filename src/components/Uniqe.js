@@ -103,12 +103,9 @@ function Uniqe() {
         deck.push({ type });
       }
     }
-
     const shuffledDeck = shuffleCards(deck);
     const playerDeck = shuffledDeck.slice(0, 20);
     const opponentDeck = shuffledDeck.slice(20, 40);
-
-
     // Draw 5 cards for the player and opponent
     const playerHand = [];
     const opponentHand = [];
