@@ -30,8 +30,7 @@ const CARD_TYPES = {
 function Uniqe() {
   const [playerHealth, setPlayerHealth] = useState(20);
   const [opponentHealth, setOpponentHealth] = useState(20);
-  const [playerDeck, setPlayerDeck] = useState([]);
-  const [opponentDeck, setOpponentDeck] = useState([]);
+
   const [playerHand, setPlayerHand] = useState([]);
   const [opponentHand, setOpponentHand] = useState([]);
   const [active, setActive] = useState(false);
@@ -116,8 +115,7 @@ function Uniqe() {
     const shuffledDeck = shuffleCards(deck);
     const playerDeck = shuffledDeck.slice(0, 20);
     const opponentDeck = shuffledDeck.slice(20, 40);
-    setPlayerDeck(playerDeck);
-    setOpponentDeck(opponentDeck);
+
 
     // Draw 5 cards for the player and opponent
     const playerHand = [];
