@@ -1,0 +1,87 @@
+.modal{
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0; 
+  left :0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.modal.active{
+  transform: scale(1);
+}
+
+.modal__content__msg{
+
+  padding: 20px;
+  background-color: beige;
+  height: 130px;
+  height: 130px;
+  width: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: x-large;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.win1{
+border-top: 3px solid lightgreen;
+border-bottom: 3px solid  lightgreen;
+border-left:3px solid  lightgreen ;
+}
+.win2{
+  border-top: 3px solid lightgreen;
+  border-bottom: 3px solid  lightgreen;
+  border-right:3px solid  lightgreen ;
+}
+.lost1{
+  border-top: 3px solid lightsalmon;
+  border-bottom: 3px solid lightsalmon;
+  border-left:3px solid lightsalmon;
+}
+.lost2{
+  border-top: 3px solid lightsalmon;
+  border-bottom: 3px solid lightsalmon;
+  border-right:3px solid lightsalmon;
+}
+
+.modal__content__icon{
+  padding: 20px;
+  background-color: beige;
+
+  height: 130px;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: x-large;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.icon {
+  animation: bounce 1s infinite alternate ease;
+}
+
+@keyframes bounce {
+  0% {
+    transform: rotate(-15deg);
+  }
+
+ 50% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
+}

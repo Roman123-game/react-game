@@ -5,7 +5,8 @@ import WaterIcon from '@mui/icons-material/Water';
 import AirIcon from '@mui/icons-material/Air';
 import GrassIcon from '@mui/icons-material/Grass';
 import Badge from '@mui/material/Badge'
-import ModalWindow from "./ModalWindow"
+import ModalWindow from "./Modals/ModalWindow"
+import ModalWindowEndGame from "./Modals/ModalWindowEndGame"
 
 const CARD_TYPES = {
   fire: {
@@ -31,9 +32,11 @@ function Uniqe() {
   const [opponentHealth, setOpponentHealth] = useState(20);
   const [playerHand, setPlayerHand] = useState([]);
   const [opponentHand, setOpponentHand] = useState([]);
-  const [active, setActive] = useState(false);
   const [newGame, setNewGame] = useState("false");
   const [message, setMessage] = useState("");
+  const [messageEnd, setMessageEnd] = useState("");
+  const [active, setActive] = useState(false)
+  const [activeEnd, setActiveEnd] = useState(false)
   // Shuffle an array of cards
   const shuffleCards = (cards) => {
     for (let i = cards.length - 1; i > 0; i--) {
@@ -63,9 +66,9 @@ function Uniqe() {
     setActive(true);
     setMessage("Opponent turn")
     setTimeout(() => {
-      setActive(false);
       opponentTurn();
-    }, "2500");
+      setActive(false);
+    }, "2000");
   };
   // Opponent plays a random card from their hand
   const opponentTurn = () => {
@@ -82,12 +85,14 @@ function Uniqe() {
   // Check if the game is over (either player's health is 0)
   useEffect(() => {
     if (playerHealth <= 0) {
-      setMessage("You lost the game!");
+      setMessageEnd("You lost the game!");
+      setActiveEnd(true);
       setNewGame("true")
       setPlayerHealth(20);
       setOpponentHealth(20);
     } else if (opponentHealth <= 0) {
-      setMessage("You won the game!");
+      setMessageEnd("You won the game!");
+      setActiveEnd(true);
       setNewGame("true")
       setPlayerHealth(20);
       setOpponentHealth(20);
@@ -123,6 +128,7 @@ function Uniqe() {
   return (
     <div className="main">
       <ModalWindow active={active} message={message} />
+      <ModalWindowEndGame activeEnd={activeEnd} messageEnd={messageEnd} onClick={()=>setActiveEnd(false)} />
       <h1 className="header">Elemental Clash</h1>
       <h4 className="rules">{rules}</h4>
       <div className="health">
