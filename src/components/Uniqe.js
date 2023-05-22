@@ -111,7 +111,7 @@ function Uniqe() {
     const shuffledDeck = shuffleCards(deck);
     const playerDeck = shuffledDeck.slice(0, 20);
     const opponentDeck = shuffledDeck.slice(20, 40);
-    // Draw 5 cards for the player and opponent
+    // Draw 7 cards for the player and opponent
     const playerHand = [];
     const opponentHand = [];
     for (let i = 0; i < 7; i++) {
@@ -122,7 +122,7 @@ function Uniqe() {
     setOpponentHand(opponentHand);
   }, [newGame]);
 
-  const rules = `In Elemental Clash, players take turns playing cards from their hand to deal damage to each other. Each card has a type (fire, water, earth, or wind),
+  const rules = `In Uniqe Game, players take turns playing cards from their hand to deal damage to each other. Each card has a type (fire, water, earth, or wind),
   and a corresponding damage value. The game ends when one player's health is reduced to 0.`
 
   return (
