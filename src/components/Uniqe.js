@@ -129,7 +129,7 @@ function Uniqe() {
     <div className="main">
       <ModalWindow active={active} message={message} />
       <ModalWindowEndGame activeEnd={activeEnd} messageEnd={messageEnd} onClick={()=>setActiveEnd(false)} />
-      <h1 className="header">Elemental Clash</h1>
+      <h1 className="header">Uniqe Game</h1>
       <h4 className="rules">{rules}</h4>
       <div className="health">
         <Badge badgeContent={playerHealth} color="secondary">  Player Health
