@@ -13,13 +13,13 @@ const ModalWindow = (props) => {
     if (message === "Opponent turn") {
       return <Box sx={{ display: 'flex' }}><CircularProgress /></Box>
     }   else if  (message === "You lost the game!") {
-      return <VideogameAssetOffIcon className="icon"/>
+      return <VideogameAssetOffIcon fontSize="large" className="icon"/>
     }
     else if  (message === "No Winner!") {
-      return <AccessibilityNewIcon className="icon"/>
+      return <AccessibilityNewIcon fontSize="large" className="icon"/>
     }
     else {
-      return < EmojiEventsIcon className="icon" />
+      return < EmojiEventsIcon fontSize="large" className="icon" />
     }
   
     
