@@ -2,13 +2,24 @@ import React from "react"
 import "./ModalWindow.css"
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import VideogameAssetOffIcon from '@mui/icons-material/VideogameAssetOff';
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 
 const ModalWindow = (props) => {
   const { active, message} = props;
+
   function iconFunc() {
     if (message === "Opponent turn") {
       return <Box sx={{ display: 'flex' }}><CircularProgress /></Box>
+    }   else if  (message === "You lost the game!") {
+      return <VideogameAssetOffIcon className="icon"/>
+    }
+    else if  (message === "No Winner!") {
+      return <AccessibilityNewIcon className="icon"/>
+    }
+    else {
+      return < EmojiEventsIcon className="icon" />
     }
   
     

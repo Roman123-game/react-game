@@ -6,7 +6,6 @@ import AirIcon from '@mui/icons-material/Air';
 import GrassIcon from '@mui/icons-material/Grass';
 import Badge from '@mui/material/Badge'
 import ModalWindow from "./Modals/ModalWindow"
-import ModalWindowEndGame from "./Modals/ModalWindowEndGame"
 
 const CARD_TYPES = {
   fire: {
@@ -34,9 +33,7 @@ function Uniqe() {
   const [opponentHand, setOpponentHand] = useState([]);
   const [newGame, setNewGame] = useState("false");
   const [message, setMessage] = useState("");
-  const [messageEnd, setMessageEnd] = useState("");
   const [active, setActive] = useState(false)
-  const [activeEnd, setActiveEnd] = useState(false)
   // Shuffle an array of cards
   const shuffleCards = (cards) => {
     for (let i = cards.length - 1; i > 0; i--) {
@@ -85,18 +82,26 @@ function Uniqe() {
   // Check if the game is over (either player's health is 0)
   useEffect(() => {
     if (playerHealth <= 0) {
-      setMessageEnd("You lost the game!");
-      setActiveEnd(true);
+      setMessage("You lost the game!");
+      setActive(true);
       setNewGame("true")
       setPlayerHealth(20);
       setOpponentHealth(20);
     } else if (opponentHealth <= 0) {
-      setMessageEnd("You won the game!");
-      setActiveEnd(true);
+      setMessage("You won the game!");
+      setActive(true);
       setNewGame("true")
       setPlayerHealth(20);
       setOpponentHealth(20);
     }
+    else if ( opponentHealth <= 0 && playerHealth <= 0){
+      setMessage("No Winner!");
+      setActive(true);
+      setNewGame("true")
+      setPlayerHealth(20);
+      setOpponentHealth(20);
+    }
+    
   }, [playerHealth, opponentHealth]);
 
   // Initialize the game by shuffling and drawing cards
@@ -128,7 +133,6 @@ function Uniqe() {
   return (
     <div className="main">
       <ModalWindow active={active} message={message} />
-      <ModalWindowEndGame activeEnd={activeEnd} messageEnd={messageEnd} onClick={()=>setActiveEnd(false)} />
       <h1 className="header">Uniqe Game</h1>
       <h4 className="rules">{rules}</h4>
       <div className="health">
