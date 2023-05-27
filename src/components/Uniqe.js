@@ -31,7 +31,7 @@ function Uniqe() {
   const [opponentHealth, setOpponentHealth] = useState(20);
   const [playerHand, setPlayerHand] = useState([]);
   const [opponentHand, setOpponentHand] = useState([]);
-  const [newGame, setNewGame] = useState("false");
+  const [newGame, setNewGame] = useState(false);
   const [message, setMessage] = useState("");
   const [active, setActive] = useState(false)
   // Shuffle an array of cards
@@ -84,20 +84,20 @@ function Uniqe() {
     if (playerHealth <= 0) {
       setMessage("You lost the game!");
       setActive(true);
-      setNewGame("true")
+      setNewGame(!newGame)
       setPlayerHealth(20);
       setOpponentHealth(20);
     } else if (opponentHealth <= 0) {
       setMessage("You won the game!");
       setActive(true);
-      setNewGame("true")
+      setNewGame(!newGame)
       setPlayerHealth(20);
       setOpponentHealth(20);
     }
     else if ( opponentHealth <= 0 && playerHealth <= 0){
       setMessage("No Winner!");
       setActive(true);
-      setNewGame("true")
+      setNewGame(!newGame)
       setPlayerHealth(20);
       setOpponentHealth(20);
     }
