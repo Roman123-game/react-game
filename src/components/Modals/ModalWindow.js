@@ -11,7 +11,7 @@ const ModalWindow = (props) => {
 
   function iconFunc() {
     if (message === "Opponent turn") {
-      return <Box sx={{ display: 'flex' }}><CircularProgress /></Box>
+      return <CircularProgress />
     }   else if  (message === "You lost the game!") {
       return <VideogameAssetOffIcon fontSize="large" className="icon"/>
     }
