@@ -14,13 +14,15 @@ const ModalWindow = (props) => {
     }   else if  (message === "You lost the game!") {
       return <VideogameAssetOffIcon fontSize="large" className="icon"/>
     }
-    else if  (message === "No Winner!") {
-      return <AccessibilityNewIcon fontSize="large" className="icon"/>
-    }
-    else {
+    else if  (message === "You won the game!") {
       return < EmojiEventsIcon fontSize="large" className="icon" />
     }
+    else {
+   
+      return  <AccessibilityNewIcon fontSize="large" className="icon"/>
+
   }
+}
 
   return (
     <div className={active ? "modal active" : "modal"}>
