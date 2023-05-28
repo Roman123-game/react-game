@@ -91,15 +91,12 @@ function Uniqe() {
       setMessage("You won the game!");
       setActive(true);
       setNewGame(!newGame)
-      setPlayerHealth(20);
-      setOpponentHealth(20);
     }
     else if ( opponentHealth <= 0 && playerHealth <= 0){
       setMessage("No Winner!");
       setActive(true);
       setNewGame(!newGame)
-      setPlayerHealth(20);
-      setOpponentHealth(20);
+     
     }
     
   }, [playerHealth, opponentHealth]);
@@ -125,6 +122,8 @@ function Uniqe() {
     }
     setPlayerHand(playerHand);
     setOpponentHand(opponentHand);
+    setPlayerHealth(20);
+    setOpponentHealth(20);
   }, [newGame]);
 
   const rules = `In Uniqe Game, players take turns playing cards from their hand to deal damage to each other. Each card has a type (fire, water, earth, or wind),
