@@ -1,7 +1,6 @@
 import React from "react"
 import "./ModalWindow.css"
 import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import VideogameAssetOffIcon from '@mui/icons-material/VideogameAssetOff';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
