@@ -37,6 +37,7 @@
 }
 .modal__content__icon{
   padding: 20px;
+  color: rgb(247, 94, 34);
   background-color: beige;
   border-top: 5px solid lightskyblue;
   border-bottom: 5px solid lightskyblue;
