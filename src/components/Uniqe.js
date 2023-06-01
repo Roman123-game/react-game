@@ -127,7 +127,7 @@ function Uniqe() {
   }, [newGame]);
 
   const rules = `In Uniqe Game, players take turns playing cards from their hand to deal damage to each other. Each card has a type (fire, water, earth, or wind),
-  and a corresponding damage value. The game ends when one player's health is reduced to 0. Please sned me an email with update that you wanna see on this game :)`
+  and a corresponding damage value. The game ends when one player's health is reduced to 0. Please send me an email at broitman.rom@gmail.com with update that you wanna see on this game :)`
 
   return (
     <div className="main">
