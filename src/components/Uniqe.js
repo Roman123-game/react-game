@@ -90,13 +90,16 @@ function Uniqe() {
     } else if (opponentHealth <= 0) {
       setMessage("You won the game!");
       setActive(true);
-      setNewGame(1)
+      setNewGame(1);
+      setPlayerHealth(20);
+      setOpponentHealth(20);
     }
     else if ( opponentHealth <= 0 && playerHealth <= 0){
       setMessage("No Winner!");
       setActive(true);
-      setNewGame(2)
-     
+      setNewGame(2);
+      setPlayerHealth(20);
+      setOpponentHealth(20);
     }
     
   }, [playerHealth, opponentHealth]);
